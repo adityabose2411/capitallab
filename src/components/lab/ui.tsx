@@ -56,7 +56,7 @@ export function Panel({ title, kind, actions, children, className, subtitle }: {
   );
 }
 
-export function Kpi({ label, value, sub, tip, kind, tone }: { label: string; value: ReactNode; sub?: ReactNode; tip?: ReactNode; kind?: DataKind; tone?: "positive" | "caution" | "default" }) {
+export function Kpi({ label, value, sub, tip, kind, tone }: { label: string; value: ReactNode; sub?: ReactNode; tip?: ReactNode; kind?: DataKind; tone?: "positive" | "caution" | "default" | undefined }) {
   return (
     <div className="rounded-xl border bg-card p-4 shadow-card">
       <div className="flex items-center justify-between gap-2">
@@ -74,7 +74,7 @@ export function Kpi({ label, value, sub, tip, kind, tone }: { label: string; val
   );
 }
 
-export function MetricRow({ label, before, after, tip, tone }: { label: string; before?: ReactNode; after: ReactNode; tip?: ReactNode; tone?: "positive" | "caution" }) {
+export function MetricRow({ label, before, after, tip, tone }: { label: string; before?: ReactNode; after: ReactNode; tip?: ReactNode; tone?: "positive" | "caution" | undefined }) {
   return (
     <div className="flex items-center justify-between gap-3 border-b py-2 text-sm last:border-0">
       <span className="flex items-center gap-1.5 text-muted-foreground">
@@ -112,7 +112,7 @@ export function SliderField({ label, value, onChange, min, max, step = 1, unit, 
           {unit && <span className="w-6 text-xs text-muted-foreground">{unit}</span>}
         </div>
       </div>
-      <Slider value={[value]} min={min} max={max} step={step} onValueChange={([v]) => onChange(v)} />
+      <Slider value={[value]} min={min} max={max} step={step} onValueChange={([v]) => onChange(v ?? min)} />
     </div>
   );
 }
