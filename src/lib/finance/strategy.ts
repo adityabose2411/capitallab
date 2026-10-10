@@ -171,7 +171,7 @@ export function recommend(a: Answers) {
   s["Blended financing"].score = Math.round((s["Blended financing"].score + (s["Equity-led capital raise"].score + s["Debt financing or refinancing"].score) / 2) / 2 + 5);
 
   const ranked = Object.values(s).sort((x, y) => y.score - x.score).map((r) => ({ ...r, score: Math.max(0, Math.min(100, Math.round(r.score))) }));
-  const top = ranked[0];
+  const top = ranked[0]!;
   const confidence = missing.length >= 3 ? "Preliminary" : missing.length > 0 || volatile ? "Conditional" : "Stronger evidence";
 
   const changers: string[] = [];

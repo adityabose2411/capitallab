@@ -11,7 +11,12 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as DashboardRouteImport } from './routes/dashboard'
+import { Route as IpoPlannerRouteImport } from './routes/ipo-planner'
+import { Route as MaPlannerRouteImport } from './routes/ma-planner'
+import { Route as MethodologyRouteImport } from './routes/methodology'
+import { Route as ReportsRouteImport } from './routes/reports'
 import { Route as SimulatorRouteImport } from './routes/simulator'
+import { Route as StrategyPlannerRouteImport } from './routes/strategy-planner'
 import { Route as CaseStudyRil2020RouteImport } from './routes/case-study.ril-2020'
 
 const IndexRoute = IndexRouteImport.update({
@@ -24,9 +29,34 @@ const DashboardRoute = DashboardRouteImport.update({
   path: '/dashboard',
   getParentRoute: () => rootRouteImport,
 } as any)
+const IpoPlannerRoute = IpoPlannerRouteImport.update({
+  id: '/ipo-planner',
+  path: '/ipo-planner',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MaPlannerRoute = MaPlannerRouteImport.update({
+  id: '/ma-planner',
+  path: '/ma-planner',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MethodologyRoute = MethodologyRouteImport.update({
+  id: '/methodology',
+  path: '/methodology',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReportsRoute = ReportsRouteImport.update({
+  id: '/reports',
+  path: '/reports',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SimulatorRoute = SimulatorRouteImport.update({
   id: '/simulator',
   path: '/simulator',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const StrategyPlannerRoute = StrategyPlannerRouteImport.update({
+  id: '/strategy-planner',
+  path: '/strategy-planner',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CaseStudyRil2020Route = CaseStudyRil2020RouteImport.update({
@@ -38,34 +68,82 @@ const CaseStudyRil2020Route = CaseStudyRil2020RouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/dashboard': typeof DashboardRoute
+  '/ipo-planner': typeof IpoPlannerRoute
+  '/ma-planner': typeof MaPlannerRoute
+  '/methodology': typeof MethodologyRoute
+  '/reports': typeof ReportsRoute
   '/simulator': typeof SimulatorRoute
+  '/strategy-planner': typeof StrategyPlannerRoute
   '/case-study/ril-2020': typeof CaseStudyRil2020Route
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/dashboard': typeof DashboardRoute
+  '/ipo-planner': typeof IpoPlannerRoute
+  '/ma-planner': typeof MaPlannerRoute
+  '/methodology': typeof MethodologyRoute
+  '/reports': typeof ReportsRoute
   '/simulator': typeof SimulatorRoute
+  '/strategy-planner': typeof StrategyPlannerRoute
   '/case-study/ril-2020': typeof CaseStudyRil2020Route
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/dashboard': typeof DashboardRoute
+  '/ipo-planner': typeof IpoPlannerRoute
+  '/ma-planner': typeof MaPlannerRoute
+  '/methodology': typeof MethodologyRoute
+  '/reports': typeof ReportsRoute
   '/simulator': typeof SimulatorRoute
+  '/strategy-planner': typeof StrategyPlannerRoute
   '/case-study/ril-2020': typeof CaseStudyRil2020Route
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/dashboard' | '/simulator' | '/case-study/ril-2020'
+  fullPaths:
+    | '/'
+    | '/dashboard'
+    | '/ipo-planner'
+    | '/ma-planner'
+    | '/methodology'
+    | '/reports'
+    | '/simulator'
+    | '/strategy-planner'
+    | '/case-study/ril-2020'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/dashboard' | '/simulator' | '/case-study/ril-2020'
-  id: '__root__' | '/' | '/dashboard' | '/simulator' | '/case-study/ril-2020'
+  to:
+    | '/'
+    | '/dashboard'
+    | '/ipo-planner'
+    | '/ma-planner'
+    | '/methodology'
+    | '/reports'
+    | '/simulator'
+    | '/strategy-planner'
+    | '/case-study/ril-2020'
+  id:
+    | '__root__'
+    | '/'
+    | '/dashboard'
+    | '/ipo-planner'
+    | '/ma-planner'
+    | '/methodology'
+    | '/reports'
+    | '/simulator'
+    | '/strategy-planner'
+    | '/case-study/ril-2020'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   DashboardRoute: typeof DashboardRoute
+  IpoPlannerRoute: typeof IpoPlannerRoute
+  MaPlannerRoute: typeof MaPlannerRoute
+  MethodologyRoute: typeof MethodologyRoute
+  ReportsRoute: typeof ReportsRoute
   SimulatorRoute: typeof SimulatorRoute
+  StrategyPlannerRoute: typeof StrategyPlannerRoute
   CaseStudyRil2020Route: typeof CaseStudyRil2020Route
 }
 
@@ -85,11 +163,46 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DashboardRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/ipo-planner': {
+      id: '/ipo-planner'
+      path: '/ipo-planner'
+      fullPath: '/ipo-planner'
+      preLoaderRoute: typeof IpoPlannerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ma-planner': {
+      id: '/ma-planner'
+      path: '/ma-planner'
+      fullPath: '/ma-planner'
+      preLoaderRoute: typeof MaPlannerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/methodology': {
+      id: '/methodology'
+      path: '/methodology'
+      fullPath: '/methodology'
+      preLoaderRoute: typeof MethodologyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/reports': {
+      id: '/reports'
+      path: '/reports'
+      fullPath: '/reports'
+      preLoaderRoute: typeof ReportsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/simulator': {
       id: '/simulator'
       path: '/simulator'
       fullPath: '/simulator'
       preLoaderRoute: typeof SimulatorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/strategy-planner': {
+      id: '/strategy-planner'
+      path: '/strategy-planner'
+      fullPath: '/strategy-planner'
+      preLoaderRoute: typeof StrategyPlannerRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/case-study/ril-2020': {
@@ -105,7 +218,12 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   DashboardRoute: DashboardRoute,
+  IpoPlannerRoute: IpoPlannerRoute,
+  MaPlannerRoute: MaPlannerRoute,
+  MethodologyRoute: MethodologyRoute,
+  ReportsRoute: ReportsRoute,
   SimulatorRoute: SimulatorRoute,
+  StrategyPlannerRoute: StrategyPlannerRoute,
   CaseStudyRil2020Route: CaseStudyRil2020Route,
 }
 export const routeTree = rootRouteImport

@@ -6,7 +6,7 @@ import { RIL_RIGHTS } from "@/lib/finance/ril-data";
 import { cr, x } from "@/lib/finance/format";
 
 export function DebtSensitivity({ ebitda, financeCost, ril }: { ebitda: number; financeCost: number; ril: boolean }) {
-  const [amount, setAmount] = useState(RIL_RIGHTS.issueSize);
+  const [amount, setAmount] = useState<number>(RIL_RIGHTS.issueSize);
   const [rate, setRate] = useState(6.78);
   const [tenor, setTenor] = useState(5);
   const [type, setType] = useState<"fixed" | "floating">("fixed");
