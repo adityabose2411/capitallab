@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as DashboardRouteImport } from './routes/dashboard'
+import { Route as SimulatorRouteImport } from './routes/simulator'
 import { Route as CaseStudyRil2020RouteImport } from './routes/case-study.ril-2020'
 
 const IndexRoute = IndexRouteImport.update({
@@ -23,6 +24,11 @@ const DashboardRoute = DashboardRouteImport.update({
   path: '/dashboard',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SimulatorRoute = SimulatorRouteImport.update({
+  id: '/simulator',
+  path: '/simulator',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const CaseStudyRil2020Route = CaseStudyRil2020RouteImport.update({
   id: '/case-study/ril-2020',
   path: '/case-study/ril-2020',
@@ -32,30 +38,34 @@ const CaseStudyRil2020Route = CaseStudyRil2020RouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/dashboard': typeof DashboardRoute
+  '/simulator': typeof SimulatorRoute
   '/case-study/ril-2020': typeof CaseStudyRil2020Route
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/dashboard': typeof DashboardRoute
+  '/simulator': typeof SimulatorRoute
   '/case-study/ril-2020': typeof CaseStudyRil2020Route
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/dashboard': typeof DashboardRoute
+  '/simulator': typeof SimulatorRoute
   '/case-study/ril-2020': typeof CaseStudyRil2020Route
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/dashboard' | '/case-study/ril-2020'
+  fullPaths: '/' | '/dashboard' | '/simulator' | '/case-study/ril-2020'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/dashboard' | '/case-study/ril-2020'
-  id: '__root__' | '/' | '/dashboard' | '/case-study/ril-2020'
+  to: '/' | '/dashboard' | '/simulator' | '/case-study/ril-2020'
+  id: '__root__' | '/' | '/dashboard' | '/simulator' | '/case-study/ril-2020'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   DashboardRoute: typeof DashboardRoute
+  SimulatorRoute: typeof SimulatorRoute
   CaseStudyRil2020Route: typeof CaseStudyRil2020Route
 }
 
@@ -75,6 +85,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DashboardRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/simulator': {
+      id: '/simulator'
+      path: '/simulator'
+      fullPath: '/simulator'
+      preLoaderRoute: typeof SimulatorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/case-study/ril-2020': {
       id: '/case-study/ril-2020'
       path: '/case-study/ril-2020'
@@ -88,6 +105,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   DashboardRoute: DashboardRoute,
+  SimulatorRoute: SimulatorRoute,
   CaseStudyRil2020Route: CaseStudyRil2020Route,
 }
 export const routeTree = rootRouteImport
