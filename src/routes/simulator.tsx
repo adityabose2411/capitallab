@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { DebtSensitivity } from "@/components/lab/DebtSensitivity";
+import { ExportPdfButton } from "@/components/lab/ExportPdfButton";
 import { useLab } from "@/lib/store";
 import { runScenario, STRATEGIES, strategyAssumptions, type Baseline } from "@/lib/finance/scenario";
 import { cr, num, pct, x } from "@/lib/finance/format";
@@ -46,6 +47,7 @@ function Simulator() {
         actions={<>
           <Button variant="outline" onClick={() => { lab.resetRil(); toast.success("Reset to RIL FY2019–20"); }}><RotateCcw className="mr-1.5 h-4 w-4" />Reset to RIL FY2019–20</Button>
           <Button variant="outline" onClick={() => { lab.startCustom(); toast.success("Custom company started"); }}>Start Custom Company</Button>
+          <ExportPdfButton caseStudy={mode === "ril"} simulator label="Export PDF report" />
         </>} />
 
       {mode === "custom" && (
