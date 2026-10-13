@@ -108,13 +108,13 @@ export async function exportCapitalLabPdf(opts: { include: { caseStudy: boolean;
     ], "User-defined assumption");
     h2("Pro-forma results");
     table(["Metric", "Baseline", "Pro-forma", "Formula"], [
-      ["Gross debt", rs(b.grossDebt), rs(r.pfGross), "Gross debt + new debt − repaid"],
-      ["Cash", rs(b.cash), rs(r.pfCash), "Cash + net proceeds − repaid"],
-      ["Net debt", rs(o.netDebt), rs(r.pfNet), "Gross debt − cash"],
+      ["Gross debt", rs(b.grossDebt), rs(r.pfGross), "Gross debt + new debt - repaid"],
+      ["Cash", rs(b.cash), rs(r.pfCash), "Cash + net proceeds - repaid"],
+      ["Net debt", rs(o.netDebt), rs(r.pfNet), "Gross debt - cash"],
       ["Net Debt / EBITDA", xx(o.ndEbitda), xx(r.pfNdEbitda), "Net debt / adj. EBITDA"],
       ["Gross Debt / EBITDA", xx(o.gdEbitda), xx(r.pfGdEbitda), "Gross debt / adj. EBITDA"],
       ["Net gearing", pc(o.netGearing), pc(r.pfGearing), "Net debt / equity"],
-      ["Finance cost", rs(b.financeCost), rs(r.pfFinance), "Existing + new interest − saving"],
+      ["Finance cost", rs(b.financeCost), rs(r.pfFinance), "Existing + new interest - saving"],
       ["Interest coverage", xx(o.interestCover), xx(r.pfInterestCover), "EBIT / finance cost"],
     ]);
     table(["Funding & dilution", "Value"], [
