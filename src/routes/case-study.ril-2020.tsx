@@ -4,6 +4,7 @@ import { AppShell } from "@/components/lab/AppShell";
 import { CHART, DataBadge, Kpi, PageHeader, Panel } from "@/components/lab/ui";
 import { RIL_FY20, RIL_RIGHTS, RIL_TIMELINE, SOURCES } from "@/lib/finance/ril-data";
 import { cr, num } from "@/lib/finance/format";
+import { ExportPdfButton } from "@/components/lab/ExportPdfButton";
 
 export const Route = createFileRoute("/case-study/ril-2020")({
   head: () => ({ meta: [
@@ -29,7 +30,7 @@ function CaseStudy() {
   ];
   return (
     <AppShell crumb="RIL 2020 Case">
-      <PageHeader eyebrow="Historical case" title="Reliance Industries — 2020 rights issue" description="India's largest rights issue at the time, launched in May 2020 during the COVID-19 market dislocation." />
+      <PageHeader eyebrow="Historical case" title="Reliance Industries — 2020 rights issue" description="India's largest rights issue at the time, launched in May 2020 during the COVID-19 market dislocation." actions={<ExportPdfButton caseStudy simulator={false} label="Export case PDF" />} />
 
       <div className="grid gap-3 md:grid-cols-3">
         <Kpi label="Net proceeds to debt repayment" value={`${debtShare.toFixed(2)}%`} sub="39,755.08 / 53,036.13" kind="calculated" />
